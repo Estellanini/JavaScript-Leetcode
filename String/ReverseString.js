@@ -15,3 +15,15 @@ function Judge( str ) {
     return str===str.split("").reverse().join("");
 }
 Judge("abcba");
+
+
+
+//如果在V8引擎下，并且是ACM模式，需要自己增加输入输出
+var line=readline();
+function ReverseString(str){
+    return str.split(" ").reverse().join(" ");
+}
+console.log(ReverseString(line));
+
+//或者只用一行代码解决此题
+console.log(readline().split(" ").reverse().join(" "));
