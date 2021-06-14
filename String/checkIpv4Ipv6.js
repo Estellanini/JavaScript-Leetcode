@@ -10,10 +10,10 @@ function checkIpv4(IP){
 }
 function checkIpv6(IP){
     let arr=IP.split(":");
-    if(arr.length!==8) return false
+    if(arr.length!==8) return false;
     for(let i of arr){
         if(i.length>4||Object.is(parseInt(i,16),NaN)){
-            return false
+            return false;
         }
     }
     return true;
