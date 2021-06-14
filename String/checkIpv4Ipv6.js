@@ -19,7 +19,7 @@ function checkIpv6(IP){
     return true;
 }
 function solve(IP){
-    return checkIpv4(IP)?'IPv4':(checkIpv6(IP)?'IPv6':"Neither");
+    return checkIpv4(IP)?"IPv4":(checkIpv6(IP)?"IPv6":"Neither");
 }
 
 console.log(solve("2001:0db8:85a3:0:0:8A2E:0370:7334"));//IPv6
