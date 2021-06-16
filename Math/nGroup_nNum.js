@@ -7,6 +7,7 @@
 //求1-n个数的总和
 //输入：11 输出：35
 //输入：5 输出：11
+/*
 function solution( n ) {
     for(let i=1;i<=n;i++){
         if(n<=(1+i)*i/2){
@@ -17,6 +18,18 @@ function solution( n ) {
             return res+i*(n-((i-1)*i/2));
         }
     }
+}
+*/
+
+function solution(n){
+    let ans = 0;
+    for(let i=1; n>0; ++i){
+        console.log("i=",i,"n=",n,"min=",Math.min(i, n))
+        ans += i * Math.min(i, n);
+        n -= i;
+        console.log("ans=",ans,"n=",n);
+    }
+    return ans;
 }
 
 console.log(solution(11))
