@@ -28,7 +28,7 @@ console.log("第一个队列:"+queue1+"  第二个队列:"+queue2);
 push(2);
 console.log("第一个队列:"+queue1+"  第二个队列:"+queue2);
 push(3);
-console.log("第一个队列:"+queue1+"  第二个队列:"+queue2);;
+console.log("第一个队列:"+queue1+"  第二个队列:"+queue2);
 pop();
 console.log("第一个队列:"+queue1+"  第二个队列:"+queue2);
 push(4);
