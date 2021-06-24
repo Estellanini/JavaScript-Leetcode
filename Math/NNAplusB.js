@@ -12,4 +12,4 @@ function NNAplusB( a ,  b ) {
     return parseInt(adda)+parseInt(addb);
 }
 
-console.log(NNAplusB(1,1))
+console.log(NNAplusB(2,3))//222+33=255
