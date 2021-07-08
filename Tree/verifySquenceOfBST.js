@@ -5,7 +5,7 @@
 //输入： [4,8,6,12,16,14,10]
 // 返回值：true
 
-function VerifySquenceOfBST(sequence)
+/*function VerifySquenceOfBST(sequence)
 {
     if(sequence&&sequence.length>0){
         var root=sequence[sequence.length-1];
@@ -29,6 +29,36 @@ function VerifySquenceOfBST(sequence)
         }
         return left&&right;
     }
-}
+}*/
 
 console.log(VerifySquenceOfBST([4,8,6,12,16,14,10]))
+
+
+function VerifySquenceOfBST(sequence) {
+    // write code here
+    if (sequence.length === 0) {
+        return false;
+    }
+    return check(sequence, 0, sequence.length - 1);
+}
+
+//
+function check(sequence, left, right) {
+    if (left >= right) {
+        return true;
+    } else {
+        let mid = sequence[right];
+        let i;
+        for (i = left; i < right; i++) {
+            if (sequence[i] > mid) {
+                break;
+            }
+        }
+        for (let j = i; j < right; j++) {
+            if (sequence[j] <= mid) {
+                return false;
+            }
+        }
+        return check(sequence, left, i - 1) && check(sequence, i, right - 1);
+    }
+}
