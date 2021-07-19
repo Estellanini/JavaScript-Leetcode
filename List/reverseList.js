@@ -1,22 +1,43 @@
-function ListNode(x){
+/*function ListNode(x){
     this.val = x;
     this.next = null;
+}*/
+let Head={
+    val:1,
+    next:{
+        val:2,
+        next:{
+            val:3,
+            next:null
+        }
+    }
 }
+/*function reverseList(pHead){
+    let currentNode=null;//当前节点
+    let headNode=pHead;//当前链表头节点
+    while(pHead&&pHead.next){
+        currentNode=pHead.next;
+        pHead.next=currentNode.next;
+        currentNode.next=headNode;
+        headNode=currentNode;
+    }
+    return headNode;
 
-function reverseList(pHead){
-    //声明变量记录prev、cur分别代表前一个和当前节点
+}*/
+//迭代法
+function reverseList(head){
     let prev=null;
-    let cur=pHead;
-    //当cur是节点时，进行迭代操作
+    let cur=head;
     while(cur){
-        //先保存当前节点的下一个节点
         const next=cur.next;
         cur.next=prev;
         prev=cur;
         cur=next;
+        console.log("cur",cur)
+        console.log("prev",prev)
     }
-    //返回值代表
     return prev;
 }
 
+console.log(reverseList(Head));
 
