@@ -17,6 +17,7 @@
 // 输入: s = ""
 // 输出: 0
 
+//滑动窗口法
 //解题思路
 // 1、用双指针维护一个滑动窗口，用来剪切子串。
 // 2、不断移动右指针，直到遇到重复字符的时候把左指针移到前面的重复字符的下一位。（相当于把前面的重复字符删除）
@@ -37,5 +38,28 @@ function lengthOfLongestSubstring(s){
     }
     return res;
 }
+
+//遍历法
+//代码的思路比较简单，就是维护一个数组arr，对原字符串遍历，判断字符是否在arr里面，
+// 不在的话就直接push进去，再重新判断max的大小；
+// 在的话就将之前重复arr字符之前的项全部去除，再重新push进去。
+
+/**
+ * @param {string} s
+ * @return {number}
+ */
+function lengthOfLongestSubstring(s) {
+    let arr = [];
+    let max = 0;
+    for(let item of s){
+        if(arr.includes(item)){
+            let index = arr.indexOf(item);
+            arr.splice(0, index + 1);
+        }
+        arr.push(item);
+        max = max > arr.length ? max : arr.length;
+    }
+    return max;
+};
 
 console.log(lengthOfLongestSubstring("abbcdea"))
