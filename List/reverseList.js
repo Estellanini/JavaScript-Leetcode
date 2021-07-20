@@ -12,7 +12,13 @@ let Head={
         val:2,
         next:{
             val:3,
-            next:null
+            next:{
+                val:4,
+                next:{
+                    val:5,
+                    next:null
+                }
+            }
         }
     }
 }
@@ -52,6 +58,6 @@ function reverseList(head) {
     head.next.next=head;
     head.next=null;
     return last;
-};
+}
 console.log(reverseList(Head));
 
