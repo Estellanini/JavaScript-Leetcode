@@ -1,3 +1,7 @@
+//反转链表
+/*输入:1->2->3->4->5->NULL
+输出:5->4->3->2->1->NULL*/
+
 /*function ListNode(x){
     this.val = x;
     this.next = null;
