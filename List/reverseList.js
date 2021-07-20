@@ -25,6 +25,7 @@ let Head={
 
 }*/
 //迭代法
+/*
 function reverseList(head){
     let prev=null;
     let cur=head;
@@ -38,6 +39,15 @@ function reverseList(head){
     }
     return prev;
 }
+*/
 
+//递归法
+function reverseList(head) {
+    if(head==null || head.next==null) return head;
+    const last=reverseList(head.next);
+    head.next.next=head;
+    head.next=null;
+    return last;
+};
 console.log(reverseList(Head));
 
