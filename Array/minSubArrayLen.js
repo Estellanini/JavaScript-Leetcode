@@ -11,7 +11,7 @@
 右指针遍历完毕后，结束。返回min。*/
 
 
-function minSubArrayLen (target, nums) {
+/*function minSubArrayLen (target, nums) {
     // 数组长度
     const len = nums.length;
     // 定义左指针、右指针、和、最小长度
@@ -40,12 +40,12 @@ function minSubArrayLen (target, nums) {
     // 若min变化过，则肯定不满足min > len，返回min
     // 没变化过，代表遍历完后没有找到符合条件的，返回0
     return min > len ? 0 : min;
-}
+}*/
 
-console.log(minSubArrayLen(15,[5,1,3,5,10,7,4,9,2,8]));//2
+//console.log(minSubArrayLen1(15,[5,1,3,5,10,7,4,9,2,8]));//2
 
 //更简洁的代码
-function minSubArrayLen(target, nums) {
+/*function minSubArrayLen(target, nums) {
     let len=nums.length;
     let left=0,right=0,sum=0,min=len+1;
     while(right<len){
@@ -57,7 +57,32 @@ function minSubArrayLen(target, nums) {
         right++;
     }
     return min>len?0:min;
-}
+}*/
 
+//相同的题目，输出符合条件的子数组
+function minSubArrayLen1(target, nums) {
+    let len=nums.length;
+    let left=0,right=0,sum=0,min=len+1;
+    let r=right;let l=left;
+    let arr=[];
+    while(right<len){
+        sum+=nums[right];
+        while(sum>=target){
+            if(min>right-left+1){
+                min=right-left+1;
+                r=right;
+                l=left;
+            }
+            sum-=nums[left];
+            left++;
+        }
+        right++;
+    }
+   for(let i=l;i<=r;i++){
+        arr.push(nums[i]);
+    }
+    return min>len?null:arr;
+}
+console.log(minSubArrayLen1(11, [1,1,1,1,1,1,1,1]));
 
 
